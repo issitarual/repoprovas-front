@@ -45,11 +45,15 @@ const Subject = styled.div`
     padding: 8px;
     width: calc(25% - 10px);
     margin-bottom: 10px;
+    @media(max-width: 600px){
+        width: calc(50% - 10px);
+    }
     p{
         color: #b2b6b8;
         font-family: 'Roboto',sans-serif;
         font-size: 15px;
         margin-top: 10px;
+        text-align: center;
     }
 `
 export { Container, Subject, Types, List };
