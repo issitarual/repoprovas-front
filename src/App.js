@@ -1,9 +1,9 @@
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
 
-import Home from "./pages/Home";
-import TestList from "./pages/TestList";
-import TestTypes from "./pages/TestTypes";
+import Home from "./components/Home/Home";
+import TestList from "./components/TestList";
+import TestTypes from "./components/TestTypes";
 
 export default function App(){
     return(
