@@ -1,9 +1,9 @@
-import Header from "../communs/Header";
+import Header from "../communs/Header/Header";
 
 export default function Home(){
     return(
         <>
-            <Header />
+            hahaha
         </>
     )
 }

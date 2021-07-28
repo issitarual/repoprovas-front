@@ -19,6 +19,9 @@ const Container = styled.header`
     .options{
         width: 100%;
     }
+    .user{
+        position: relative;
+    }
     h1{
         margin-left: 10px;
         color: #A1AD9F;
@@ -51,6 +54,31 @@ const Container = styled.header`
     p:hover{
         color: #8CA5AF;
     }
+`;
+
+const Menu = styled.div`
+    position: absolute;
+    background-color: #2D333B;
+    display: ${props => props.open? 'block':'none'} !important;
+    top: 60px;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column!important;
+    width: 100px;
+    border-bottom-left-radius: 8px;
+    p{
+        font-weight: normal;
+        text-align: center;
+        display: block;
+        line-height: 30px;
+    }
+    .mobile{
+        display: block;
+        @media(min-width: 600px){
+            display: none;
+        }
+    }
 `
 
-export { Container };
+export { Container, Menu };
