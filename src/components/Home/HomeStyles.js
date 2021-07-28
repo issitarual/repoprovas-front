@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.main`
-    margin-top: 70px;
+    margin-top: 80px;
     padding-right: 10%;
     padding-left: 10%;
     h2{
@@ -9,8 +9,31 @@ const Container = styled.main`
         font-family: 'Roboto',sans-serif;
         font-size: 25px;
         font-weight: bold;
-        margin-bottom: 20px;
     }
+    button{
+        background-color: #373E47;
+        border: 1px solid #768390;
+        border-radius: 20px;
+        padding: 8px;
+        padding-left: 30px;
+        padding-right: 30px;
+        color: #b2b6b8;
+        cursor: pointer;
+    }
+`;
+
+const Types = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px;
+`;
+
+const List = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 `;
 
 const Subject = styled.div`
@@ -20,7 +43,8 @@ const Subject = styled.div`
     border: 1px solid #373E47;
     border-radius: 5px;
     padding: 8px;
-    width: 150px;
+    width: calc(25% - 10px);
+    margin-bottom: 10px;
     p{
         color: #b2b6b8;
         font-family: 'Roboto',sans-serif;
@@ -28,4 +52,4 @@ const Subject = styled.div`
         margin-top: 10px;
     }
 `
-export { Container, Subject };
+export { Container, Subject, Types, List };

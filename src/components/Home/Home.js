@@ -1,11 +1,17 @@
 import Header from "../communs/Header/Header";
-import { Container, Subject } from "./HomeStyles";
+import { Container, Subject, Types, List } from "./HomeStyles";
 import { CalculatorSharp, RocketSharp } from 'react-ionicons'
 
 export default function Home(){
     return(
         <Container>
-            <h2>Matérias</h2>
+            <Types>
+                <h2>Matérias</h2>
+                <button>
+                    Ver mais +
+                </button>
+            </Types>
+            <List>
                 <Subject>
                     <CalculatorSharp
                         color={'#b2b6b8'} 
@@ -46,7 +52,11 @@ export default function Home(){
                     />
                     <p>Física I</p>
                 </Subject>
-            <h2>Professores</h2>
+            </List>
+            <Types>
+                <h2>Professores</h2>
+                <button>Ver mais +</button>
+            </Types>
         </Container>
     )
 }
