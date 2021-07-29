@@ -5,9 +5,15 @@ import axios from "axios";
 
 export default function Submit(){
     useEffect(() => {
-        const response = axios.get("http://api-respoprovas.herokuapp.com/subject");
-        response.then(success => setSubject(success.data));
-        response.catch(error => {
+        axios.get("http://api-respoprovas.herokuapp.com/subject")
+        .then(success => setSubject(success.data))
+        .catch(error => {
+            alert("Algo deu errado, tente novamente!");
+            console.log(error);
+        });
+        axios.get("http://api-respoprovas.herokuapp.com/types")
+        .then(success => setTypes(success.data))
+        .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
@@ -15,6 +21,7 @@ export default function Submit(){
     const [semester, setSemester] = useState("");
     const [subject, setSubject] = useState([]);
     const [professor, setProfessor] = useState([]);
+    const [types, setTypes] = useState([]);
     const [selectSubject, setSelectSubject] = useState(0);
     let history = useHistory();
     useEffect(() => {
@@ -58,10 +65,8 @@ export default function Submit(){
                 />
                 <h2>Quarto passo: Selecione o tipo de prova</h2>
                 <select id="type" name="type" autoFocus required>
-                    <option value="P1">P1</option>
-                    <option value="P2">P2</option>
-                    <option value="P2">2CH</option>
-                    <option value="P2">Outras</option>
+                    <option value="0">Selecione</option>
+                    {types.map((n, i) => <option value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Por último: Envie a URL da prova em PDF (:</h2>
                 <input 
