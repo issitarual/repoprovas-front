@@ -21,10 +21,7 @@ export default function Contact(){
                     {options.map((n, i)=> <option value={n}>{n}</option>)}
                 </select>
                 <h2>Mande sua mensagem!</h2>
-                <textarea 
-                    type="text"
-                    required
-                />
+                <textarea type="text" required />
                 <h2>Agora é só enviar!</h2>
                 <button type="submit">Enviar</button>
             </form>
