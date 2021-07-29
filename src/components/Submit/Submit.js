@@ -11,11 +11,21 @@ export default function Submit(){
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
-    },[])
+    },[]);
     const [semester, setSemester] = useState("");
     const [subject, setSubject] = useState([]);
+    const [professor, setProfessor] = useState([]);
     const [selectSubject, setSelectSubject] = useState(0);
     let history = useHistory();
+    useEffect(() => {
+        if(selectSubject == 0) return setProfessor([]);
+        const response = axios.get(`http://api-respoprovas.herokuapp.com/subject/${selectSubject}`);
+        response.then(success => setProfessor(success.data));
+        response.catch(error => {
+            alert("Algo deu errado, tente novamente!");
+            console.log(error);
+        });
+    },[selectSubject]);
 
     return(
         <Container>
@@ -35,7 +45,8 @@ export default function Submit(){
                 </select>
                 <h2>Segundo passo: Selecione um professor!</h2>
                 <select id="professor" name="professor" autoFocus required >
-                    <option value={0}>Selecionar</option>
+                    <option value={0}>Selecione</option>
+                    {professor.map((n, i) => <option value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Terceiro passo: Qual período foi aplicada?</h2>
                 <input 
