@@ -20,6 +20,37 @@ const Container = styled.div`
         font-size: 15px;
         margin: 10px;
     }
+    select, input{
+        background-color: #22272E;
+        padding: 5px;
+        width: 200px;
+        border-radius: 5px;
+        color: #9DA7B2;
+        margin-left: 10px;
+        border: 1px solid #373E47;
+        ::-webkit-input-placeholder  { 
+        color:#9DA7B2; 
+    }
+    @media(max-width: 600px){
+        width: calc(100% - 10px);
+    }
+    }
+    button{
+        background-color: #373E47;
+        border: 1px solid #9DA7B2;
+        color:#9DA7B2; 
+        border-radius: 5px;
+        padding: 5px;
+        width: 200px;
+        margin-left: 10px;
+        @media(max-width: 600px){
+            width: calc(100% - 10px);
+        }
+    }
+    textarea:focus, input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    } 
 `;
 
 export { Container };
