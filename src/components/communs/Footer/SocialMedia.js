@@ -5,15 +5,15 @@ export default function SocialMedia(){
     return(
         <SocialMediaContainer>
             <div onClick={() => socialMedia("instagram")}>
-                <SiInstagram color="#fff"/>
+                <SiInstagram color="#fff" style={{marginRight: '10px', cursor: 'pointer'}}/>
             </div>
             <div onClick={() => socialMedia("twitter")}>
-                <SiTwitter color="#fff"/>
+                <SiTwitter color="#fff" style={{marginRight: '10px', cursor: 'pointer'}}/>
             </div>
             <div onClick={() => socialMedia("facebook")}>
-                <SiFacebook color="#fff"/>
+                <SiFacebook color="#fff" style={{marginRight: '10px', cursor: 'pointer'}}/>
             </div>
-            <div onClick={() => socialMedia("youtube")}>
+            <div onClick={() => socialMedia("youtube")} style={{cursor: 'pointer'}}>
                 <SiYoutube color="#fff"/>
             </div>
         </SocialMediaContainer>

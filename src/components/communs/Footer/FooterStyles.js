@@ -16,31 +16,13 @@ const SocialMediaContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 12%;
 `;
 
-const OptionsContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 75%;
-    p{
-        margin: auto;
-        color: #A1AD9F;
-        font-family: 'Roboto', sans-serif;  
-        font-size: 13px;
-        letter-spacing: 1px;
-        cursor: pointer;
-    }
-`;
 
 const LogoContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 12%;
     p{
-        margin: auto;
         color: #A1AD9F;
         font-family: 'Lobster', cursive;
         font-size: 15px;
@@ -50,4 +32,4 @@ const LogoContainer = styled.div`
     }
 `;
 
-export { Container, SocialMediaContainer, LogoContainer, OptionsContainer };
+export { Container, SocialMediaContainer, LogoContainer };
