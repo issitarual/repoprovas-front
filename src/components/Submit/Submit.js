@@ -2,31 +2,36 @@ import { Container } from "./SubmitStyles";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
+import Loader from "react-loader-spinner";
 
 export default function Submit(){
     useEffect(() => {
-        axios.get("http://api-respoprovas.herokuapp.com/subject")
+        axios.get("http://api-respoprovas.herokuapp.com/submit")
         .then(success => setSubject(success.data))
         .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
-        axios.get("http://api-respoprovas.herokuapp.com/types")
+        axios.get("http://api-respoprovas.herokuapp.com/submit/types")
         .then(success => setTypes(success.data))
         .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
     },[]);
+    const [selectSubject, setSelectSubject] = useState(0);
+    const [selectProfessor, setSelectProfessor] = useState(0);
     const [semester, setSemester] = useState("");
+    const [selectType, setSelectType] = useState(0);
+    const [pdf, setPdf] = useState("");
     const [subject, setSubject] = useState([]);
     const [professor, setProfessor] = useState([]);
     const [types, setTypes] = useState([]);
-    const [selectSubject, setSelectSubject] = useState(0);
+    const [loading, setLoading] = useState(false);
     let history = useHistory();
     useEffect(() => {
         if(selectSubject == 0) return setProfessor([]);
-        const response = axios.get(`http://api-respoprovas.herokuapp.com/subject/${selectSubject}`);
+        const response = axios.get(`http://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`);
         response.then(success => setProfessor(success.data));
         response.catch(error => {
             alert("Algo deu errado, tente novamente!");
@@ -51,7 +56,14 @@ export default function Submit(){
                     {subject.map((n, i) => <option value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Segundo passo: Selecione um professor!</h2>
-                <select id="professor" name="professor" autoFocus required >
+                <select 
+                    id="professor" 
+                    name="professor" 
+                    autoFocus 
+                    required 
+                    value={selectProfessor} 
+                    onChange={(e) => setSelectProfessor(e.target.value)}
+                >
                     <option value={0}>Selecione</option>
                     {professor.map((n, i) => <option value={n.id}>{n.name}</option>)}
                 </select>
@@ -64,7 +76,14 @@ export default function Submit(){
                     required
                 />
                 <h2>Quarto passo: Selecione o tipo de prova</h2>
-                <select id="type" name="type" autoFocus required>
+                <select 
+                    id="type" 
+                    name="type" 
+                    autoFocus 
+                    required
+                    value={selectType} 
+                    onChange={(e) => setSelectType(e.target.value)}
+                >
                     <option value="0">Selecione</option>
                     {types.map((n, i) => <option value={n.id}>{n.name}</option>)}
                 </select>
@@ -74,17 +93,41 @@ export default function Submit(){
                     placeholder="https://exemplo.com"
                     pattern="https://.*"
                     required
+                    value={pdf}
+                    onChange={(e) => setPdf(e.target.value)}
                 />
                 <h2>Agora é só enviar!</h2>
-                <button type="submit">Enviar</button>
+                <button type="submit">{loading? <Loader type="ThreeDots" color="#9DA7B2" height={15} width={50} />: "Enviar"}</button>
             </form>
         </Container>
     )
     function submitTest(e){
         e.preventDefault();
+        setLoading(true);
         if(selectSubject === 0)return alert("Selecione uma disciplina!");
-        setSelectSubject(0);
-        alert("enviado");
-        history.push("/");
+        else if(selectProfessor === 0) return alert("Selecione um professor!");
+        else if(selectType === 0) return alert("Selecione um tipo de prova!");
+        const sendTest = {
+            name: semester,
+            typeId: selectType,
+            subjectId: selectSubject,
+            professorId: selectProfessor,
+            url: pdf
+        }
+        axios.post("http://api-respoprovas.herokuapp.com/submit", sendTest)
+        .then(success =>{
+            setSelectSubject(0);
+            setSelectType(0);
+            setSelectProfessor(0);
+            setPdf("");
+            setSemester("");
+            alert("enviado");
+            history.push("/");
+        })
+        .catch(error => {
+            alert("Algo deu errado, tente novamente!");
+            setLoading(false);
+            console.log(error);
+        })
     }
 }

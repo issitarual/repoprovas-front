@@ -67,6 +67,7 @@ const Menu = styled.div`
     flex-direction: column!important;
     width: 100px;
     border-bottom-left-radius: 8px;
+    z-index: 10!important;
     p{
         font-weight: normal;
         text-align: center;
@@ -81,4 +82,14 @@ const Menu = styled.div`
     }
 `
 
-export { Container, Menu };
+const CloseMenu = styled.div`
+    display: ${props => props.open? 'block':'none'} !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+`;
+
+export { Container, Menu, CloseMenu };

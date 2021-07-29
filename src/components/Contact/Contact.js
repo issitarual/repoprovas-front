@@ -1,6 +1,7 @@
 import { Container } from "./ConstactStyles";
 import { useState } from "react";
 import { useHistory } from "react-router";
+import Loader from "react-loader-spinner";
 
 export default function Contact(){
     const options = [
@@ -11,6 +12,7 @@ export default function Contact(){
         'Denúncia', 
         'Outros'
     ];
+    const [loading, setLoading] = useState(false);
     let history = useHistory();
     return(
         <Container>
@@ -23,13 +25,16 @@ export default function Contact(){
                 <h2>Mande sua mensagem!</h2>
                 <textarea type="text" required />
                 <h2>Agora é só enviar!</h2>
-                <button type="submit">Enviar</button>
+                <button type="submit">{loading? <Loader type="ThreeDots" color="#9DA7B2" height={15} width={50} />: "Enviar"}</button>
             </form>
         </Container>
     )
     function submitTest(e){
         e.preventDefault();
-        alert("enviado");
-        history.push("/");
+        setLoading(true);
+        setTimeout(() => {
+            alert("enviado");
+            history.push("/");
+        }, 1000);
     }
 }

@@ -43,6 +43,7 @@ const Container = styled.div`
         padding: 5px;
         width: 200px;
         margin-left: 10px;
+        font-size: 15px;
         @media(max-width: 600px){
             width: calc(100% - 10px);
         }
