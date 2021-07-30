@@ -6,15 +6,15 @@ import Loader from "react-loader-spinner";
 
 export default function Submit(){
     useEffect(() => {
-        axios.get("http://api-respoprovas.herokuapp.com/submit")
-        .then(success => setSubject(success.data))
-        .catch(error => {
+        const subject = axios.get("http://api-respoprovas.herokuapp.com/submit");
+        subject.then(success => setSubject(success.data));
+        subject.catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
-        axios.get("http://api-respoprovas.herokuapp.com/submit/types")
-        .then(success => setTypes(success.data))
-        .catch(error => {
+        const types = axios.get("http://api-respoprovas.herokuapp.com/submit/types");
+        types.then(success => setTypes(success.data));
+        types.catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
