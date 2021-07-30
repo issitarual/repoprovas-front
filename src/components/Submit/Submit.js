@@ -19,6 +19,7 @@ export default function Submit(){
             console.log(error);
         });
     },[]);
+    
     const [selectSubject, setSelectSubject] = useState(0);
     const [selectProfessor, setSelectProfessor] = useState(0);
     const [semester, setSemester] = useState("");
@@ -29,6 +30,7 @@ export default function Submit(){
     const [types, setTypes] = useState([]);
     const [loading, setLoading] = useState(false);
     let history = useHistory();
+
     useEffect(() => {
         if(selectSubject == 0) return setProfessor([]);
         const response = axios.get(`http://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`);
