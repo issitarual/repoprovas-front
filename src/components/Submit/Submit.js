@@ -20,10 +20,10 @@ export default function Submit(){
         });
     },[]);
 
-    const [selectSubject, setSelectSubject] = useState(0);
-    const [selectProfessor, setSelectProfessor] = useState(0);
+    const [selectSubject, setSelectSubject] = useState("0");
+    const [selectProfessor, setSelectProfessor] = useState("0");
     const [semester, setSemester] = useState("");
-    const [selectType, setSelectType] = useState(0);
+    const [selectType, setSelectType] = useState("0");
     const [pdf, setPdf] = useState("");
     const [subject, setSubject] = useState([]);
     const [professor, setProfessor] = useState([]);
@@ -32,7 +32,7 @@ export default function Submit(){
     let history = useHistory();
 
     useEffect(() => {
-        if(selectSubject === 0) return setProfessor([]);
+        if(selectSubject === "0") return setProfessor([]);
         const response = axios.get(`https://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`);
         response.then(success => setProfessor(success.data));
         response.catch(error => {
@@ -54,7 +54,7 @@ export default function Submit(){
                     value={selectSubject} 
                     onChange={(e) => setSelectSubject(e.target.value)}
                 >
-                    <option value={0}>Selecione</option>
+                    <option value="0">Selecione</option>
                     {subject.map((n, i) => <option key={i} value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Segundo passo: Selecione um professor!</h2>
@@ -66,7 +66,7 @@ export default function Submit(){
                     value={selectProfessor} 
                     onChange={(e) => setSelectProfessor(e.target.value)}
                 >
-                    <option value={0}>Selecione</option>
+                    <option value="0">Selecione</option>
                     {professor.map((n, i) => <option key={i} value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Terceiro passo: Qual período foi aplicada?</h2>
