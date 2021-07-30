@@ -12,6 +12,12 @@ export default function Submit(){
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
+        const types = axios.get("http://api-respoprovas.herokuapp.com/submit/types");
+        types.then(success => setTypes(success.data));
+        types.catch(error => {
+            alert("Algo deu errado, tente novamente!");
+            console.log(error);
+        });
     },[]);
 
     const [selectSubject, setSelectSubject] = useState(0);
