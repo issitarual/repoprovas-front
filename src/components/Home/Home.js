@@ -1,4 +1,3 @@
-import Header from "../communs/Header/Header";
 import { Container, Subject, Types, List } from "./HomeStyles";
 import { CalculatorSharp, RocketSharp, CellularSharp, DesktopSharp, CubeSharp, PersonSharp } from 'react-ionicons'
 

@@ -19,7 +19,7 @@ export default function Submit(){
             console.log(error);
         });
     },[]);
-    
+
     const [selectSubject, setSelectSubject] = useState(0);
     const [selectProfessor, setSelectProfessor] = useState(0);
     const [semester, setSemester] = useState("");
@@ -32,7 +32,7 @@ export default function Submit(){
     let history = useHistory();
 
     useEffect(() => {
-        if(selectSubject == 0) return setProfessor([]);
+        if(selectSubject === 0) return setProfessor([]);
         const response = axios.get(`http://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`);
         response.then(success => setProfessor(success.data));
         response.catch(error => {
@@ -55,7 +55,7 @@ export default function Submit(){
                     onChange={(e) => setSelectSubject(e.target.value)}
                 >
                     <option value={0}>Selecione</option>
-                    {subject.map((n, i) => <option value={n.id}>{n.name}</option>)}
+                    {subject.map((n, i) => <option key={i} value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Segundo passo: Selecione um professor!</h2>
                 <select 
@@ -67,7 +67,7 @@ export default function Submit(){
                     onChange={(e) => setSelectProfessor(e.target.value)}
                 >
                     <option value={0}>Selecione</option>
-                    {professor.map((n, i) => <option value={n.id}>{n.name}</option>)}
+                    {professor.map((n, i) => <option key={i} value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Terceiro passo: Qual período foi aplicada?</h2>
                 <input 
@@ -87,7 +87,7 @@ export default function Submit(){
                     onChange={(e) => setSelectType(e.target.value)}
                 >
                     <option value="0">Selecione</option>
-                    {types.map((n, i) => <option value={n.id}>{n.name}</option>)}
+                    {types.map((n, i) => <option key={i} value={n.id}>{n.name}</option>)}
                 </select>
                 <h2>Por último: Envie a URL da prova em PDF (:</h2>
                 <input 
