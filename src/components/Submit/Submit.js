@@ -6,21 +6,21 @@ import Loader from "react-loader-spinner";
 
 export default function Submit(){
     useEffect(() => {
-        const subject = axios.get("https://api-respoprovas.herokuapp.com/submit");
-        subject.then(success => setSubject(success.data));
-        subject.catch(error => {
+        axios.get("https://api-respoprovas.herokuapp.com/submit")
+        .then(success => setSubject(success.data))
+        .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
-        const types = axios.get("https://api-respoprovas.herokuapp.com/submit/types");
-        types.then(success => setTypes(success.data));
-        types.catch(error => {
+        axios.get("https://api-respoprovas.herokuapp.com/submit/types")
+        .then(success => setTypes(success.data))
+        .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
     },[]);
 
-    const [selectSubject, setSelectSubject] = useState("0");
+    const [selectSubject, setSelectSubject] = useState(0);
     const [selectProfessor, setSelectProfessor] = useState("0");
     const [semester, setSemester] = useState("");
     const [selectType, setSelectType] = useState("0");
@@ -32,10 +32,10 @@ export default function Submit(){
     let history = useHistory();
 
     useEffect(() => {
-        if(selectSubject === "0") return setProfessor([]);
-        const response = axios.get(`https://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`);
-        response.then(success => setProfessor(success.data));
-        response.catch(error => {
+        if(selectSubject == "0") return setProfessor([]);
+        axios.get(`https://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`)
+        .then(success => setProfessor(success.data))
+        .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
