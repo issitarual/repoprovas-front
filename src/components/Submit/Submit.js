@@ -6,9 +6,15 @@ import Loader from "react-loader-spinner";
 
 export default function Submit(){
     useEffect(() => {
-        const subject = axios.get("http://api-respoprovas.herokuapp.com/submit");
+        const subject = axios.get("https://api-respoprovas.herokuapp.com/submit");
         subject.then(success => setSubject(success.data));
         subject.catch(error => {
+            alert("Algo deu errado, tente novamente!");
+            console.log(error);
+        });
+        const types = axios.get("https://api-respoprovas.herokuapp.com/submit/types");
+        types.then(success => setTypes(success.data));
+        types.catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
         });
@@ -27,7 +33,7 @@ export default function Submit(){
 
     useEffect(() => {
         if(selectSubject === 0) return setProfessor([]);
-        const response = axios.get(`http://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`);
+        const response = axios.get(`https://api-respoprovas.herokuapp.com/submit/subject/${selectSubject}`);
         response.then(success => setProfessor(success.data));
         response.catch(error => {
             alert("Algo deu errado, tente novamente!");
