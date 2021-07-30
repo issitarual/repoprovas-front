@@ -1,7 +1,19 @@
 import { Container, Subject, Types, List } from "./HomeStyles";
-import { CalculatorSharp, RocketSharp, CellularSharp, DesktopSharp, CubeSharp, PersonSharp } from 'react-ionicons'
+import { CalculatorSharp, RocketSharp, CellularSharp, DesktopSharp, CubeSharp } from 'react-ionicons'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Professor from "./Professor";
 
 export default function Home(){
+    useEffect(() => {
+        axios.get("https://api-respoprovas.herokuapp.com/professor")
+        .then(success => setProfessor(success.data.slice(0, 12)))
+        .catch(error => {
+            alert("Algo deu errado, tente novamente!");
+            console.log(error);
+        });
+    },[]);
+    const [professor, setProfessor] = useState([]);
     return(
         <Container>
             <Types>
@@ -113,70 +125,7 @@ export default function Home(){
                 <button>Ver mais +</button>
             </Types>
             <List>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>Allan Goulart</p>
-                </Subject>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>Ildeu Castro</p>
-                </Subject>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>Felipe Acker</p>
-                </Subject>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>Monique Carmona</p>
-                </Subject>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>Gladston Duarte</p>
-                </Subject>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>Hugo de Luna</p>
-                </Subject>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>Sidnei Percia</p>
-                </Subject>
-                <Subject>
-                    <PersonSharp
-                        color={'#b2b6b8'} 
-                        height="25px"
-                        width="25px"
-                    />
-                    <p>André Penna Firme</p>
-                </Subject>
+                {professor.map((n, i) => <Professor key={i} id={n.id} name={n.name}/>)}
             </List>
         </Container>
     )

@@ -92,4 +92,51 @@ const CloseMenu = styled.div`
     z-index: 1;
 `;
 
-export { Container, Menu, CloseMenu };
+const SelectTest = styled.div`
+    display: ${props => props.open? 'block':'none'} !important;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.2);
+    div{
+        background-color: #22272E;
+        margin: auto;
+        width: 50%;
+        margin-top: calc(50vh - 75px);
+        padding: 20px;
+        border-radius: 5px;
+        flex-direction: column;
+        border: 1px solid #8CA5AF;
+        @media(max-width: 600px){
+            width: 90%;
+        }
+    }
+    p{
+        @media(max-width: 600px){
+            display: block;
+        }
+    }
+    span{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+        @media(max-width: 600px){
+            width: 90%;
+        }
+    }
+    button{
+        background-color: #373E47;
+        border: 1px solid #9DA7B2;
+        color:#9DA7B2; 
+        border-radius: 5px;
+        padding: 5px;
+        width: 150px;
+        font-weight: bold;
+    }
+`;
+
+export { Container, Menu, CloseMenu, SelectTest };

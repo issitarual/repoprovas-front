@@ -16,8 +16,8 @@ export default function App(){
             <Header/>
             <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/outro/:type" exact component={TestTypes} />
-                <Route path="/outro/:type/:id" exact component={TestList} />
+                <Route path="/test/:type" exact component={TestTypes} />
+                <Route path="/test/:type/:id" exact component={TestList} />
                 <Route path="/submit" exact component={Submit} />
                 <Route path="/contact" exact component={Contact} />
             </Switch>
