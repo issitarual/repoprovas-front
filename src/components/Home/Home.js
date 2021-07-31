@@ -3,6 +3,7 @@ import { CalculatorSharp, RocketSharp, CellularSharp, DesktopSharp, CubeSharp } 
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Professor from "./Professor";
+import { useHistory } from 'react-router';
 
 export default function Home(){
     useEffect(() => {
@@ -25,11 +26,12 @@ export default function Home(){
         });
     },[]);
     const [professor, setProfessor] = useState([]);
+    let history = useHistory();
     return(
         <Container>
             <Types>
                 <h2>Matérias</h2>
-                <button>
+                <button onClick={() => history.push("/test/subject")}>
                     Ver mais +
                 </button>
             </Types>
@@ -133,7 +135,9 @@ export default function Home(){
             </List>
             <Types>
                 <h2>Professores</h2>
-                <button>Ver mais +</button>
+                <button onClick={() => history.push("/test/professor")}>
+                    Ver mais +
+                </button>
             </Types>
             <List>
                 {professor.map((n, i) => <Professor key={i} id={n.id} name={n.name}/>)}
