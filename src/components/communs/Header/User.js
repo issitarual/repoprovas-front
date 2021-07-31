@@ -32,7 +32,7 @@ export default function User(){
             <img src="https://i.pinimg.com/736x/47/b9/79/47b97903c3867b10067f60c3d5bec300.jpg" alt="stitch"/>
         </div>
         <Menu open={openMenu}>
-            <p className="mobile" onClick={() => goToPage("submit")}>Submeter</p>
+            <p className="mobile" onClick={() => goToPage("/submit")}>Submeter</p>
             <p className="mobile" onClick={() => {setSelect(true); setOpenMenu(!openMenu)}}>Provas</p>
             <p className="mobile" onClick={() => goToPage("/contact")}>Contato</p>
             <p onClick={() => goToPage("/")}>Perfil</p>
