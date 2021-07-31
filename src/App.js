@@ -3,7 +3,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 
 import Home from "./components/Home/Home";
 import TestList from "./components/TestList";
-import TestTypes from "./components/TestTypes";
+import TestTypes from "./components/TestTypes/TestTypes";
 import Submit from "./components/Submit/Submit";
 import Contact from "./components/Contact/Contact";
 import Header from "./components/communs/Header/Header";

@@ -37,6 +37,7 @@ const List = styled.div`
 `;
 
 const Subject = styled.div`
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;

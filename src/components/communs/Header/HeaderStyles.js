@@ -114,9 +114,13 @@ const SelectTest = styled.div`
         }
     }
     p{
+        cursor: default;
         @media(max-width: 600px){
             display: block;
         }
+    }
+    p:hover{
+        color: #A1AD9F;
     }
     span{
         margin-top: 20px;
@@ -136,6 +140,7 @@ const SelectTest = styled.div`
         padding: 5px;
         width: 150px;
         font-weight: bold;
+        cursor: pointer;
     }
 `;
 

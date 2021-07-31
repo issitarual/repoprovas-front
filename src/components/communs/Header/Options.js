@@ -13,7 +13,7 @@ export default function Options(){
                 <p onClick={() => history.push("/contact")}>Contato</p>
             </div>
             <SelectTest open={select} onClick={(e) => setSelect(false)}>
-                <div>
+                <div onClick={(e) => e.stopPropagation()}>
                     <p>Ordenar por:</p>
                     <span>
                         <button onClick={(e) => goToTest(e, "subject")}>Disciplina</button>
