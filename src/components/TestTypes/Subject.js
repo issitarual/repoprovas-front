@@ -6,19 +6,19 @@ export default function Subject({list}){
         <Semester>
             <h3>1º Semestre</h3>
                 <span>
-                    {list.filter(n => n.semester === 1).map((n, i) => <EachSubject subject={n} key={i}/>)}
+                    {list.filter(n => n.semester === 1).map((n, i) => <EachSubject subject={n.subject} key={i}/>)}
                 </span>
             <h3>2º Semestre</h3>
                 <span>
-                    {list.filter(n => n.semester === 2).map((n, i) => <EachSubject subject={n} key={i}/>)}
+                    {list.filter(n => n.semester === 2).map((n, i) => <EachSubject subject={n.subject} key={i}/>)}
                 </span>
             <h3>3º Semestre</h3>
                 <span>
-                    {list.filter(n => n.semester === 3).map((n, i) => <EachSubject subject={n} key={i}/>)}
+                    {list.filter(n => n.semester === 3).map((n, i) => <EachSubject subject={n.subject} key={i}/>)}
                 </span>
             <h3>4º Semestre</h3>
                 <span>
-                    {list.filter(n => n.semester === 4).map((n, i) => <EachSubject subject={n} key={i}/>)}
+                    {list.filter(n => n.semester === 4).map((n, i) => <EachSubject subject={n.subject} key={i}/>)}
                 </span>
         </Semester>
     )
