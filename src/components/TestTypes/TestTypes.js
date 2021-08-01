@@ -10,19 +10,7 @@ export default function TestTypes(){
 
     useEffect(() => {
         axios.get(`https://api-respoprovas.herokuapp.com/${type}`)
-        .then(success => {
-            if(type === "subject") return setList(success.data);
-            let object = {};
-            let removeDuplicate = [];
-            for (let i = 0; i < success.data.length; i++) {
-              let item = success.data[i];
-              if (!object[item.name]) {
-                object[item.name] = true;
-                removeDuplicate.push(item);
-              }
-            }
-            setList(removeDuplicate);
-        })
+        .then(success => setList(success.data))
         .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);

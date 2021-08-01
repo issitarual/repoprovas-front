@@ -14,18 +14,7 @@ export default function Home(){
             console.log(error);
         });
         axios.get("https://api-respoprovas.herokuapp.com/professor")
-        .then(success => {
-            let object = {};
-            let removeDuplicate = [];
-            for (let i = 0; i < success.data.length; i++) {
-              let item = success.data[i];
-              if (!object[item.name]) {
-                object[item.name] = true;
-                removeDuplicate.push(item);
-              }
-            }
-            setProfessor(removeDuplicate.slice(0, 12));
-        })
+        .then(success => setProfessor(success.data.slice(0, 12)))
         .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);
