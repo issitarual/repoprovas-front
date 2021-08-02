@@ -14,7 +14,7 @@ export default function Home(){
             console.log(error);
         });
         axios.get("https://api-respoprovas.herokuapp.com/professor")
-        .then(success => setProfessor(success.data.slice(0, 12)))
+        .then(success => setProfessor(success.data.slice(0, 8)))
         .catch(error => {
             alert("Algo deu errado, tente novamente!");
             console.log(error);

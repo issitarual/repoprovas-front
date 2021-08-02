@@ -20,7 +20,7 @@ export default function TestTypes(){
     console.log(list);
     return(
         <Container>
-            <h2>{type === "subject"? "Disciplinas": "Professores"}</h2>
+            <h2>{type === "subject"? "Disciplinas - Ciclo Básico": "Professores"}</h2>
             <List>
                 {type === "professor"? list.map((n,i) => <Professor list={n}/>): <Subject list={list}/>}
             </List>

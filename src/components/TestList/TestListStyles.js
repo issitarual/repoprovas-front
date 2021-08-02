@@ -16,6 +16,15 @@ const Container = styled.main`
             text-align: center;
         }
     }
+    h3{
+        color: #ADBAC7;
+        font-family: 'Roboto',sans-serif;
+        font-size: 18px;
+        margin-top: 10px;
+        @media(max-width: 600px){
+            text-align: center;
+        } 
+    }
     h6{
         color: #ADBAC7;
         font-family: 'Roboto',sans-serif;
@@ -27,6 +36,22 @@ const Container = styled.main`
     }
     h6:hover{
         color: #A1AD9F;
+    }
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 1px solid #373E47;
+        border-radius: 5px;
+        padding: 8px;
+        margin-top: 10px;
+    }
+    p{
+        margin-right: 5px;
+        color: #ADBAC7;
+        font-family: 'Roboto',sans-serif;
+        font-size: 16px;
     }
 `;
 

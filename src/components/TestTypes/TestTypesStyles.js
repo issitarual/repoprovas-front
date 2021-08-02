@@ -12,6 +12,9 @@ const Container = styled.main`
         font-family: 'Roboto',sans-serif;
         font-size: 25px;
         font-weight: bold;
+        @media(max-width: 600px){
+            text-align: center;
+        }
     }
 `;
 

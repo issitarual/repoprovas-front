@@ -9,10 +9,7 @@ import { Link } from "react-router-dom";
 export default function TestList(){
     let { type, id, name } = useParams();
     useEffect(() => {
-        const data = {
-            name: name
-        }
-        axios.get(`https://api-respoprovas.herokuapp.com/${type}/${id}/`, data)
+        axios.get(`https://api-respoprovas.herokuapp.com/${type}/${id}/`)
         .then(success => setTests(success.data))
         .catch(error => {
             alert("Algo deu errado, tente novamente!");
@@ -29,7 +26,7 @@ export default function TestList(){
                 <h6><Link to="/submit">Ainda não temos provas cadastradas, envie uma!</Link></h6>:
                 type === "subject"? 
                 <Subejct tests={tests} />: 
-                <Professor testes={tests}/>
+                <Professor tests={tests}/>
             }
         </Container>
     )

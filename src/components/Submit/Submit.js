@@ -93,7 +93,6 @@ export default function Submit(){
                 <input 
                     type="url"
                     placeholder="https://exemplo.com"
-                    pattern="https://.*"
                     required
                     value={pdf}
                     onChange={(e) => setPdf(e.target.value)}
