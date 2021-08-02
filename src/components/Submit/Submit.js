@@ -115,7 +115,7 @@ export default function Submit(){
             professorId: selectProfessor,
             url: pdf
         }
-        axios.post("http://api-respoprovas.herokuapp.com/submit", sendTest)
+        axios.post("https://api-respoprovas.herokuapp.com/submit", sendTest)
         .then(success =>{
             setSelectSubject(0);
             setSelectType(0);
