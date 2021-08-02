@@ -54,7 +54,7 @@ export default function Home(){
                     width={80} 
                     style={{margin: 'auto', display: `${loadingProfessor? 'block': 'none'}`}}
                 />                
-                {professor.map((n, i) => <Professor key={i} id={n.id} name={n.name}/>)}
+                {professor.map((n, i) => <Professor key={i} id={n.id} name={n.name} tests={n.tests}/>)}
             </List>
         </Container>
     )

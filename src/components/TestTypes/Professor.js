@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 
 export default function Professor({list}){
     let history = useHistory();
-    const {name, id} = list;
+    const {name, id, tests} = list;
     return(
         <EachProfessor onClick={() => goToProfessorTeste(id, name)}>
             <PersonSharp
@@ -12,7 +12,7 @@ export default function Professor({list}){
                 height="25px"
                 width="25px"
             />
-            <p>{name}</p>
+            <p>{`${name} (${tests.length})`}</p>
         </EachProfessor>
     )
     function goToProfessorTeste(id, name){
