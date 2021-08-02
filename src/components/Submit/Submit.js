@@ -21,9 +21,9 @@ export default function Submit(){
     },[]);
 
     const [selectSubject, setSelectSubject] = useState(0);
-    const [selectProfessor, setSelectProfessor] = useState("0");
+    const [selectProfessor, setSelectProfessor] = useState(0);
     const [semester, setSemester] = useState("");
-    const [selectType, setSelectType] = useState("0");
+    const [selectType, setSelectType] = useState(0);
     const [pdf, setPdf] = useState("");
     const [subject, setSubject] = useState([]);
     const [professor, setProfessor] = useState([]);
@@ -106,9 +106,9 @@ export default function Submit(){
     function submitTest(e){
         e.preventDefault();
         setLoading(true);
-        if(selectSubject === 0)return alert("Selecione uma disciplina!");
-        else if(selectProfessor === 0) return alert("Selecione um professor!");
-        else if(selectType === 0) return alert("Selecione um tipo de prova!");
+        if(selectSubject === 0 || selectSubject === "0")return alert("Selecione uma disciplina!");
+        else if(selectProfessor === 0|| selectProfessor === "0") return alert("Selecione um professor!");
+        else if(selectType === 0 || selectType === "0") return alert("Selecione um tipo de prova!");
         const sendTest = {
             name: semester,
             typeId: selectType,

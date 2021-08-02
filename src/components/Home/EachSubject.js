@@ -5,7 +5,7 @@ import { useHistory } from 'react-router';
 export default function EachSubject({name, id}){
     let history = useHistory();
     return(
-        <Subject onClick={() => goToSubjectTest(id)}>
+        <Subject onClick={() => goToSubjectTest(id, name)}>
             <CalculatorSharp
                 color={'#b2b6b8'} 
                 height="25px"
@@ -39,7 +39,7 @@ export default function EachSubject({name, id}){
             <p>{name}</p>
         </Subject>
     )    
-    function goToSubjectTest(id){
-        history.push(`/test/subject/${id}`)
+    function goToSubjectTest(id, name){
+        history.push(`/test/subject/${id}/${name}`)
     }
 }

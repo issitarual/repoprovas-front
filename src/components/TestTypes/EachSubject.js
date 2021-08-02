@@ -6,7 +6,7 @@ export default function EachSubject({subject}){
     const {name, id} = subject;
     let history = useHistory();
     return(
-        <EachProfessor className="subject" onClick={() => goToSubjectTest(id)}>
+        <EachProfessor className="subject" onClick={() => goToSubjectTest(id, name)}>
             <BookSharp
                 color={'#b2b6b8'} 
                 height="25px"
@@ -16,7 +16,7 @@ export default function EachSubject({subject}){
             <p>{name}</p>
         </EachProfessor>
     )
-    function goToSubjectTest(id){
-        history.push(`/test/subject/${id}`)
+    function goToSubjectTest(id, name){
+        history.push(`/test/subject/${id}/${name}`)
     }
 }

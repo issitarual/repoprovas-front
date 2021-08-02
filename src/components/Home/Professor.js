@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 export default function Professor({name, id}){
     let history = useHistory();
     return(
-        <Subject onClick={() => goToProfessorTest(id)}>
+        <Subject onClick={() => goToProfessorTest(id, name)}>
             <PersonSharp
                 color={'#b2b6b8'} 
                 height="25px"
@@ -14,7 +14,7 @@ export default function Professor({name, id}){
             <p>{name}</p>
         </Subject>
     )
-    function goToProfessorTest(id){
-        history.push(`/test/professor/${id}`)
+    function goToProfessorTest(id, name){
+        history.push(`/test/professor/${id}/${name}`)
     }
 }

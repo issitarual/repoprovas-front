@@ -35,8 +35,8 @@ export default function User(){
             <p className="mobile" onClick={() => goToPage("/submit")}>Submeter</p>
             <p className="mobile" onClick={() => {setSelect(true); setOpenMenu(!openMenu)}}>Provas</p>
             <p className="mobile" onClick={() => goToPage("/contact")}>Contato</p>
-            <p onClick={() => goToPage("/")}>Perfil</p>
-            <p onClick={() => goToPage("/")}>Sair</p>
+            <p onClick={() => alert("Rota em desenvolvimento")}>Perfil</p>
+            <p onClick={() => alert("Rota em desenvolvimento")}>Sair</p>
         </Menu>
         <CloseMenu open={openMenu} onClick={() => setOpenMenu(!openMenu)}/>
         <SelectTest open={select} onClick={(e) => setSelect(false)}>

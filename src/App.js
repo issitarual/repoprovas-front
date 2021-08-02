@@ -2,7 +2,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import GlobalStyles from "./styles/GlobalStyles";
 
 import Home from "./components/Home/Home";
-import TestList from "./components/TestList";
+import TestList from "./components/TestList/TestList";
 import TestTypes from "./components/TestTypes/TestTypes";
 import Submit from "./components/Submit/Submit";
 import Contact from "./components/Contact/Contact";
@@ -17,7 +17,7 @@ export default function App(){
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/test/:type" exact component={TestTypes} />
-                <Route path="/test/:type/:id" exact component={TestList} />
+                <Route path="/test/:type/:id/:name" exact component={TestList} />
                 <Route path="/submit" exact component={Submit} />
                 <Route path="/contact" exact component={Contact} />
             </Switch>
