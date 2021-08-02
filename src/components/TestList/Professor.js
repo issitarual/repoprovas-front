@@ -1,7 +1,6 @@
 import EachTest from "./EachTest";
 
 export default function Professor({tests}){
-    console.log(!tests.filter(n => n.type.name === "P1")[0])
     return(
         <>
             {tests.filter(n => n.type.name === "P1")[0]? <h3>Prova 01</h3>: null}

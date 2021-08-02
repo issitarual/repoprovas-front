@@ -17,7 +17,6 @@ export default function TestTypes(){
         });
     },[type]);
     const [list, setList] = useState([]);
-    console.log(list);
     return(
         <Container>
             <h2>{type === "subject"? "Disciplinas - Ciclo Básico": "Professores"}</h2>
