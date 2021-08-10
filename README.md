@@ -17,6 +17,7 @@ This is an web aplication wich students can share their old tests and find the o
 - [ ] Show how many tests have in each subject
 - [ ] Sign up
 - [ ] Log in
+- [ ] Profile page
 - [ ] Add a professor/subject/course
 ## Technologies
 The following tools and frameworks were used in the construction of the project:<br>
